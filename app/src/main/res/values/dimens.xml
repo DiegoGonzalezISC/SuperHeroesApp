@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_bottom_padding">8dp</dimen>
+    <dimen name="default_start_end_padding">8dp</dimen>
+    <dimen name="default_start_end_padding_mid">16dp</dimen>
+    <dimen name="default_vertical_margin">8dp</dimen>
+</resources>

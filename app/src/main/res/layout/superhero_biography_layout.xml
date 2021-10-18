@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_biography"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="@dimen/default_start_end_padding_mid"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/tvBiography_fullname_title"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/biography_fullname"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tvBiography_fullname_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/default_bottom_padding"
+            android:justificationMode="inter_word"
+            android:inputType="textMultiLine"
+            android:autoSizeTextType="uniform"
+            android:textAppearance="?attr/textAppearanceBody2"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/tvBiography_alter_egos_title"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/biography_alter_egos"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tvBiography_alter_egos_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/default_bottom_padding"
+            android:justificationMode="inter_word"
+            android:inputType="textMultiLine"
+            android:autoSizeTextType="uniform"
+            android:textAppearance="?attr/textAppearanceBody2"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/tvBiography_aliases_title"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/biography_aliases"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tvBiography_aliases_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/default_bottom_padding"
+            android:justificationMode="inter_word"
+            android:inputType="textMultiLine"
+            android:autoSizeTextType="uniform"
+            android:textAppearance="?attr/textAppearanceBody2"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/tvBiography_place_of_birth_title"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/biography_place_of_birth"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tvBiography_place_of_birth_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/default_bottom_padding"
+            android:justificationMode="inter_word"
+            android:inputType="textMultiLine"
+            android:autoSizeTextType="uniform"
+            android:textAppearance="?attr/textAppearanceBody2"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/tvBiography_first_appearance_title"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/biography_first_appearance"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tvBiography_first_appearance_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/default_bottom_padding"
+            android:justificationMode="inter_word"
+            android:inputType="textMultiLine"
+            android:textAppearance="?attr/textAppearanceBody2"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/tvBiography_publisher_title"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/biography_publisher"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tvBiography_publisher_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/default_bottom_padding"
+            android:justificationMode="inter_word"
+            android:inputType="textMultiLine"
+            android:textAppearance="?attr/textAppearanceBody2"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <TextView
+            android:id="@+id/tvBiography_alignment_title"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/biography_alignment"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            />
+        <TextView
+            android:id="@+id/tvBiography_alignment_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:justificationMode="inter_word"
+            android:inputType="textMultiLine"
+            android:autoSizeTextType="uniform"
+            android:maxLines="5"
+            android:layout_marginEnd="8dp"
+            android:textAppearance="?attr/textAppearanceBody2"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">SuperHeroesApp</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="card_superhero_name">Batman</string>
+    <string name="card_superhero_realname">Bruce Wayne</string>
+    <string name="svSuperHeroes">Look for a SuperHero</string>
+    <string name="title_biography">Biography</string>
+    <string name="title_powerstats">PowerStats</string>
+    <string name="biography_fullname">Full Name:</string>
+    <string name="biography_alter_egos">Alteregos:</string>
+    <string name="biography_aliases">Aliases:</string>
+    <string name="biography_place_of_birth">Place of Birth:</string>
+    <string name="biography_publisher">Publisher:</string>
+    <string name="biography_first_appearance">First Appearance:</string>
+    <string name="biography_alignment">Alignment:</string>
+    <string name="powerstats_intelligence">Intelligence:</string>
+    <string name="powerstats_strength">Strength:</string>
+    <string name="powerstats_speed">Speed</string>
+    <string name="powerstats_durability">Durability:</string>
+    <string name="powerstats_power">Power:</string>
+    <string name="powerstats_combat">Combat:</string>
+    <string name="biography_gender">Gender:</string>
+    <string name="title_appearance">Appearance</string>
+    <string name="appearance_race">Race:</string>
+    <string name="appearance_height">Height:</string>
+    <string name="appearance_weight">Weight:</string>
+    <string name="appearance_eye_color">Eye Color:</string>
+    <string name="appearance_hair_color">Hair Color:</string>
+    <string name="work_occupation">Occupation:</string>
+    <string name="work_base">Base:</string>
+    <string name="title_work">Work</string>
+    <string name="connections_group_affiliation">Group Affiliation:</string>
+    <string name="connections_relatives">Relatives:</string>
+    <string name="title_connections">Connections</string>
+</resources>
