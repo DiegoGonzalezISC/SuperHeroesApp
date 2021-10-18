@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.superheroesapp.databinding.FragmentSuperHeroesListBinding
@@ -65,7 +64,6 @@ class SuperHeroesListFragment : Fragment(), SearchView.OnQueryTextListener {
         busqueda = searchStr
         viewModel.onCreate(busqueda)
         superHeroAdapter.notifyDataSetChanged()
-        // Toast.makeText(this.context, "Búsqueda", Toast.LENGTH_SHORT).show()
     }
 
 

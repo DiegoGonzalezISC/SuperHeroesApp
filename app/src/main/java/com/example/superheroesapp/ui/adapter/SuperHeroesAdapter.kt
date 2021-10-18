@@ -24,12 +24,7 @@ class SuperHeroesAdapter(private val superhero: List<Result>) :
             Glide.with(itemView).load(item.image.url).into(binding.ivSuperHeroImg)
 
             binding.cvSuperHero.setOnClickListener {
-//                Toast.makeText(itemView.context, "Has seleccionado a ${item.name}", Toast.LENGTH_LONG).show(
 
-                //      Para que SuperHeroFragmentDirections funcione es necesario agregar las dependencias
-                //        def nav_version = "2.3.5"
-                //        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version")
-                //        En el top build gradle
                 val direction = SuperHeroesListFragmentDirections.actionSuperHeroesListFragmentToSuperHeroDetailsFragment(item)
                 Navigation.findNavController(it).navigate(direction)
             }
