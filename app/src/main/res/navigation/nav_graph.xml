@@ -24,6 +24,6 @@
             app:destination="@id/superHeroesListFragment" />
         <argument
             android:name="detailsSuperHero"
-            app:argType="com.example.superheroesapp.data.Result" />
+            app:argType="com.example.superheroesapp.data.SuperHeroID" />
     </fragment>
 </navigation>

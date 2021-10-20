@@ -11,4 +11,9 @@ class SuperHeroImpl {
             .getSuperHeroesBySearch(searchStr)
     }
 
+    suspend fun getSuperHeroById(id: String): Response<SuperHeroID> {
+        return RetrofitHelper.getRetrofit().create(APIService::class.java)
+            .getSuperHeroesById(id)
+    }
+
 }

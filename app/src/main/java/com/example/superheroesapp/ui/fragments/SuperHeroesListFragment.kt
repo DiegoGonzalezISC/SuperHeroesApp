@@ -10,27 +10,36 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.widget.SearchView
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.superheroesapp.databinding.FragmentSuperHeroesListBinding
 import com.example.superheroesapp.ui.adapter.SuperHeroesAdapter
 import com.example.superheroesapp.data.Result
+import com.example.superheroesapp.data.SuperHeroID
+import com.example.superheroesapp.ui.adapter.CellClickListener
 import com.example.superheroesapp.ui.view.MainActivity
 import com.example.superheroesapp.ui.viewmodel.SuperHeroesViewModel
 
 
-class SuperHeroesListFragment : Fragment(), SearchView.OnQueryTextListener {
+class SuperHeroesListFragment : Fragment(), CellClickListener {
 
 
     private lateinit var binding: FragmentSuperHeroesListBinding
+
     lateinit var viewModel: SuperHeroesViewModel
     lateinit var superHeroAdapter: SuperHeroesAdapter
+    lateinit var layoutManager: LinearLayoutManager
 
-    var busqueda = "a"
+
+    var page = 1
+
+    var busqueda = "batman"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         activity?.let { context ->
             viewModel = (context as MainActivity).superHeroViewModel
         }
+        page = 1
     }
 
     override fun onCreateView(
@@ -43,55 +52,63 @@ class SuperHeroesListFragment : Fragment(), SearchView.OnQueryTextListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (requireActivity() as MainActivity).supportActionBar!!.hide()
-        viewModel.onCreate(busqueda)
-        viewModel.superHeroModel.observe(viewLifecycleOwner) { response ->
-            initHeroes(response)
+
+        viewModel.nextPage()
+        viewModel.currenPage.observe(viewLifecycleOwner) { response ->
+
+            if(response > 1) {
+                superHeroAdapter.addSuperHero(viewModel.getSuperHeroes())
+                binding.progressBar.visibility = View.GONE
+            }else {
+                initHeroes(viewModel.getSuperHeroes())
+            }
         }
 
-        binding.svSuperHeroes.setOnQueryTextListener(this)
     }
 
-    private fun initHeroes(response: List<Result>) {
-        superHeroAdapter = SuperHeroesAdapter(response)
+    private fun initHeroes(response: ArrayList<SuperHeroID?>) {
+
+        superHeroAdapter = SuperHeroesAdapter(response, this)
         binding.rvSuperHeroes.apply {
             adapter = superHeroAdapter
             layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
-            isNestedScrollingEnabled = false
+            setHasFixedSize(true)
         }
-    }
-
-    private fun searchSuperHeroes(searchStr: String) {
-        busqueda = searchStr
-        viewModel.onCreate(busqueda)
+        initScroll()
         superHeroAdapter.notifyDataSetChanged()
+        binding.progressBar.visibility = View.GONE
     }
 
 
+    fun initScroll() {
 
-    fun Fragment.hideKeyboard() {
-        view?.let { activity?.hideKeyboard(it) }
+        layoutManager = LinearLayoutManager(this.context)
+        binding.rvSuperHeroes.layoutManager = layoutManager
+        binding.rvSuperHeroes.addOnScrollListener(object: RecyclerView.OnScrollListener(){
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+
+                val visibleItems: Int = layoutManager.childCount
+                val pastItems = layoutManager.findFirstCompletelyVisibleItemPosition()
+                val total =  superHeroAdapter.itemCount
+
+                if(!viewModel.getLoadingState()){
+
+                    if((visibleItems + pastItems) >= total){
+                        binding.progressBar.visibility = View.VISIBLE
+                        viewModel.nextPage()
+
+                    }
+                }
+
+                super.onScrolled(recyclerView, dx, dy)
+
+            }
+
+        })
     }
 
-
-    fun Context.hideKeyboard(view: View) {
-        val inputMethodManager = getSystemService(Activity.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputMethodManager.hideSoftInputFromWindow(view.windowToken, 0)
-    }
-
-
-
-    override fun onQueryTextSubmit(query: String?): Boolean {
-
-        if(!query.isNullOrEmpty()) {
-            searchSuperHeroes(query.lowercase())
-            hideKeyboard()
-        }
-
-        return true
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        return true
+    override fun onCellClickListener() {
+        viewModel.page = 0
     }
 
 

@@ -5,7 +5,9 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.superheroesapp.data.Result
+import com.example.superheroesapp.data.SuperHeroID
 import com.example.superheroesapp.data.SuperHeroImpl
+import com.example.superheroesapp.domain.GetSuperHeroesPerPage
 import kotlinx.coroutines.launch
 
 class SuperHeroesViewModel: ViewModel() {
@@ -13,6 +15,12 @@ class SuperHeroesViewModel: ViewModel() {
     private val superHeroImpl = SuperHeroImpl()
 
     val superHeroModel = MutableLiveData<List<Result>>()
+    val superHeroIdModel = MutableLiveData<ArrayList<SuperHeroID?>>()
+    var superHeroesIDList = ArrayList<SuperHeroID?>(emptyList())
+    val currenPage = MutableLiveData<Int>()
+    var loading = false
+    var page = 0
+
 
     fun onCreate(searchString: String) {
         viewModelScope.launch {
@@ -27,5 +35,25 @@ class SuperHeroesViewModel: ViewModel() {
             }
         }
     }
+
+    fun nextPage() {
+        page ++
+        loading = true
+        viewModelScope.launch {
+            val getSuperHeroesPerPage:GetSuperHeroesPerPage = GetSuperHeroesPerPage()
+            superHeroesIDList = getSuperHeroesPerPage.getSuperHeroesList(page)
+            currenPage.postValue(page)
+            loading = false
+        }
+    }
+
+    fun getSuperHeroes(): ArrayList<SuperHeroID?>{
+        return superHeroesIDList
+    }
+
+    fun getLoadingState(): Boolean {
+        return loading
+    }
+
 
 }
